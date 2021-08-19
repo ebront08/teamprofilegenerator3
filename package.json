@@ -16,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/ebront08/teamprofilegenerator3/issues"
   },
-  "homepage": "https://github.com/ebront08/teamprofilegenerator3#readme"
+  "homepage": "https://github.com/ebront08/teamprofilegenerator3#readme",
+  "dependencies": {
+    "badmath": "^1.0.1"
+  }
 }

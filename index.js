@@ -6,7 +6,6 @@ const fs = require("fs");
 
 // Software Engineering team
 const Engineer = require('./lib/Engineer');
-const Employee = require('./lib/Employee');
 const Manager = require('./lib/Manager');
 const Intern = require('./lib/Intern');
 // generate html 

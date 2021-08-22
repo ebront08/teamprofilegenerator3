@@ -56,7 +56,7 @@ const internCard = function (intern) {
 };
 
 // Pushes array to html page 
-const generateHTML = function(data) {
+generateHTML = (data) => {
 
     // array for team cards 
     pageArray = []; 

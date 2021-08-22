@@ -7,7 +7,7 @@ const Engineer = require("./lib/Engineer");
 const Manager = require("./lib/Manager");
 const Intern = require("./lib/Intern");
 // generate html
-const generateHTML = require("./dist/generateHTML");
+const generateHTML = require("./src/createHTML");
 // TODO: Create an array of questions for user input
 const teamArray = [];
 // Manager questions that will be prompted

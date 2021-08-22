@@ -1,0 +1,16 @@
+.team-heading {
+  background-color: blue;
+  color: white;
+  font-family: "Arial", Verdana, Tahoma;
+  text-decoration: underline;
+}
+
+.employee-card {
+  background-color: lightgrey;
+  font-family: "Arial", Verdana, Tahoma;
+  float: left;
+}
+
+body {
+  background-color: aqua;
+}

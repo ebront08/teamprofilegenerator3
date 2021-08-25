@@ -114,13 +114,13 @@ const addEmployee = () => {
     });
 };
 
-// This function will generate a HTML page
+// Creates an HTML page
 const writeFile = (data) => {
   fs.writeFile("./dist/index.html", data, (err) => {
     console.log(data),
       err
         ? console.log(err)
-        : console.log("Created a HTML with data for the team.");
+        : console.log("Created a HTML with data for the team. -TE");
   });
 };
 

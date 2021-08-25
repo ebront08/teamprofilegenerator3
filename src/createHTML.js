@@ -1,11 +1,11 @@
-// create Manager card
-const managerCard = function (manager) {
+// Manager's Section
+const managersCard = function(manager) {
     return `
     <div class="col-4 mt-4">
         <div class="card h-100">
             <div class="card-header">
                 <h3>${manager.name}</h3>
-                <h4>Manager</h4><i class="material-icons">content_paste</i>
+                <h4>Manager</h4><i class="material-icons">groups</i>
             </div>
             <div class="card-body">
                 <p class="id">ID: ${manager.id}</p>
@@ -13,18 +13,17 @@ const managerCard = function (manager) {
                 <p class="office">Office Number: ${manager.officeNumber}</p>
             </div>
         </div>
-    </div>
-    `;
-}
+    </div>`
+};
 
-// create Engineer card
-const engineerCard = function (engineer) {
+// Engineer's section
+const engineersCard = function(engineer) {
     return `
     <div class="col-4 mt-4">
         <div class="card h-100">
             <div class="card-header">
                 <h3>${engineer.name}</h3>
-                <h4>Engineer</h4><i class="material-icons">laptop_mac</i>
+                <h4>Engineer</h4><i class="material-icons">engineering</i>
             </div>
             <div class="card-body">
                 <p class="id">ID: ${engineer.id}</p>
@@ -32,18 +31,17 @@ const engineerCard = function (engineer) {
                 <p class="github">Github: <a href="https://github.com/${engineer.github}">${engineer.github}</a></p>
             </div>
         </div>
-    </div>
-    `
-}
+    </div>`
+};
 
-// create Intern card 
-const internCard = function (intern) {
+// Intern's section
+const internsCard = function(intern) {
     return `
     <div class="col-4 mt-4">
         <div class="card h-100">
             <div class="card-header">
                 <h3>${intern.name}</h3>
-                <h4>Intern</h4><i class="material-icons">assignment_ind</i>
+                <h4>Intern</h4><i class="material-icons">school</i>
             </div>
             <div class="card-body">
                 <p class="id">ID: ${intern.id}</p>
@@ -51,57 +49,42 @@ const internCard = function (intern) {
                 <p class="school">School: ${intern.school}</p>
             </div>
     </div>
-</div>
-    `
+</div>`
 };
 
-// Pushes array to html page 
-generateHTML = (data) => {
-
-    // array for team cards 
-    pageArray = []; 
-
+const generateHTML = function(data) {
+    pageArray = [];
     for (let i = 0; i < data.length; i++) {
         const employee = data[i];
-        const role = employee.getRole(); 
+        const role = employee.getRole();
 
-
-        // calling all managers to the front please
+        // Calls managersCard
         if (role === 'Manager') {
-            const managerCard = generateManager(employee);
-
+            const managerCard = managersCard(employee);
             pageArray.push(managerCard);
         }
 
-        // if you are an engineer please call this function
+        // Calls engineersCard
         if (role === 'Engineer') {
-            const engineerCard = generateEngineer(employee);
-
+            const engineerCard = engineersCard(employee);
             pageArray.push(engineerCard);
         }
 
-        // if you are an intern and you love the Lord say Amen 
+        // Calls internsCard 
         if (role === 'Intern') {
-            const internCard = generateIntern(employee);
-
+            const internCard = internsCard(employee);
             pageArray.push(internCard);
         }
-        
+
     }
-
-     
     const employeeCards = pageArray.join('')
-
-    
-    const generateTeam = generateTeamPage(employeeCards); 
+    const generateTeam = generateTeamPage(employeeCards);
     return generateTeam;
+};
 
-}
-
-// generate html page 
-const generateTeamPage = function (employeeCards) {   
-  return`
-  <!DOCTYPE html>
+// HTML boiler plate and links/scripts
+const generateTeamPage = function(employeeCards) {
+    return `<!DOCTYPE html>
   <html lang="en">
   <head>
       <meta charset="UTF-8">
@@ -116,13 +99,12 @@ const generateTeamPage = function (employeeCards) {
   <body>
       <header>
           <nav class="navbar" id="navbar">
-              <span class="navbar-brand mb-0 h1 w-100 text-center" id="navbar-text">Team Profile</span>
+              <span class="navbar-brand mb-0 h1 w-100 text-center" id="navbar-text">Team Profile Generator</span>
           </nav>
       </header>
       <main>
           <div class="container">
               <div class="row justify-content-center" id="team-cards">
-                  <!--Team Cards-->
                   ${employeeCards}
               </div>
           </div>
@@ -132,9 +114,7 @@ const generateTeamPage = function (employeeCards) {
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
-  </html>
-`;
-}
+  </html>`
+};
 
-// export to html
-module.exports = generateHTML; 
+module.exports = generateHTML;
